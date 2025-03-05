@@ -7,8 +7,8 @@
 }
 
 html, body {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     overflow: hidden; /* Kaydırmayı tamamen engelle */
     display: flex;
     flex-direction: column;
@@ -148,6 +148,7 @@ h1 {
 
 @media (max-width: 768px) {
     header {
+    header {
         margin-top: 5vh;
     }
     
@@ -159,7 +160,7 @@ h1 {
 /* Yatay mod (landscape) için */
 @media (orientation: landscape) {
     .page-container {
-        transform: scale(0.8); /* İçeriği küçült ve ekrana sığdır */
+        transform: scale(0.9); /* İçeriği küçült ve ekrana sığdır */
     }
 }
 
