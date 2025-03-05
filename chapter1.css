@@ -159,7 +159,7 @@ h1 {
 /* Yatay mod (landscape) için */
 @media (orientation: landscape) {
     .page-container {
-        transform: scale(0.9); /* İçeriği küçült ve ekrana sığdır */
+        transform: scale(0.8); /* İçeriği küçült ve ekrana sığdır */
     }
 }
 
