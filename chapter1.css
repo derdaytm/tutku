@@ -26,7 +26,7 @@ html, body {
 body {
     font-family: 'Arial', sans-serif;
     background-image: url('background.jpg'); /* Arka plan resmini buraya ekleyin */
-    background-size: cover; /* Arka planın genişlik ve yükseklik oranını %100 yaparak tam sayfayı kaplamasını sağlar */
+    background-size: contain; /* Arka planın genişlik ve yükseklik oranını %100 yaparak tam sayfayı kaplamasını sağlar */
     background-position: center center; /* Resmin ekranın tam ortasında olmasını sağlar */
     background-repeat: no-repeat; /* Resmin tekrarlanmamasını sağlar */
     color: #333;
