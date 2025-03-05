@@ -169,10 +169,11 @@ h1 {
 
 footer {
     position: absolute;
-    bottom: 1px;
+    bottom: 10px;
     width: 100%;
+    background: rgba(0, 0, 0, 0.7);
     text-align: center;
-    font-size: 0.9em;
-    color: #888;
-    padding: 10px 0;
+    padding: 10px;
+    color: white;
+    font-size: 1.1em;
 }
