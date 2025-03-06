@@ -136,6 +136,38 @@ h1 {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Gölgeleme efekti */
 }
 
+.nav-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav-buttons a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px 25px;
+    font-size: 1.1em;
+    color: #fff;
+    background-color: #6A4C9C;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-buttons a:hover {
+    background-color: #4a2a6d;
+    transform: translateY(-5px);
+}
+
+.nav-buttons .prev-btn {
+    background-color: #e74c3c;
+}
+
+.nav-buttons .prev-btn:hover {
+    background-color: #c0392b;
+}
+
 /* Animasyon eklemek isterseniz */
 @keyframes fadeIn {
     from {

@@ -78,6 +78,14 @@ html, body {
     transform: translateY(-5px);
 }
 
+.nav-buttons .prev-btn {
+    background-color: #e74c3c;
+}
+
+.nav-buttons .prev-btn:hover {
+    background-color: #c0392b;
+}
+
 .nav-buttons .back-btn {
     background-color: #e74c3c;
 }
