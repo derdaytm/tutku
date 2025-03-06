@@ -1,6 +1,6 @@
 function checkPassword() {
     const password = document.getElementById("password-input").value;
-    const correctPassword = "durmuşilkeri..";  // Şifreyi istediğin gibi değiştir
+    const correctPassword = "0000";  // Şifreyi istediğin gibi değiştir
 
     if (password === correctPassword) {
         window.location.href = "index.html"; // Ana sayfaya yönlendir
