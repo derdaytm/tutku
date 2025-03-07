@@ -198,12 +198,6 @@ footer {
     cursor: pointer;
 }
 
-.video-thumbnail {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
 .video {
     width: 100%;
     max-width: 100%;
@@ -213,7 +207,7 @@ footer {
     transition: transform 0.3s ease;
 }
 
-.video-container.expanded .video-thumbnail {
+.video-container.expanded {
     display: none;
 }
 
