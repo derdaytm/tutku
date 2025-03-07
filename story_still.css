@@ -190,6 +190,39 @@ footer {
     cursor: pointer;
 }
 
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.video {
+    width: 100%;
+    max-width: 100%;
+    display: none;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.video-container.expanded .video-thumbnail {
+    display: none;
+}
+
+.video-container.expanded .video {
+    display: block;
+    transform: scale(1.5); /* büyütme efekti */
+    object-fit: contain;
+}
+
 /* Mobil uyumlu tasarım */
 @media (max-width: 768px) {
     .content-box h1 {

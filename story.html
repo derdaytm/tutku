@@ -39,6 +39,11 @@
         </div>
     </div>
     
+    <div class="video-container" onclick="expandVideo(this)">
+        <img src="thumbnail.jpg" alt="Video Thumbnail" class="video-thumbnail">
+        <video class="video" src="video.mp4" style="display:none;" controls></video>
+    </div>
+    
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Bizim Hikayemiz - Tüm Hakları Saklıdır</p>
@@ -232,7 +237,17 @@
             });
         });
 
+        function expandVideo(container) {
+            // Eğer video zaten açık değilse, videoyu başlat
+            const video = container.querySelector('.video');
+            const thumbnail = container.querySelector('.video-thumbnail');
 
+            // Video'yu ve küçük resmi gizle
+            thumbnail.style.display = 'none';
+            video.style.display = 'block';
+            video.play(); // Videoyu başlat
+        }
+        
     </script>
 </body>
 </html>
