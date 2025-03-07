@@ -27,7 +27,7 @@
         <a href="chapter1.html" class="prev-btn">Geri Gel</a>
         <a href="#" id="nextStoryBtn" class="next-btn">Sonraki Hikaye</a>
     </div>
-
+    
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Bizim Hikayemiz - Tüm Hakları Saklıdır</p>
@@ -108,143 +108,80 @@
             const storyTitle = document.getElementById("storyTitle").textContent;
             const storyContent = document.getElementById("storyContent").textContent;
 
-            // **Her hikayeye özel fotoğraf listesi**
+            // Her hikayeye özel fotoğraf ve video listesi
             const storyMedia = {
-                1: {
-                    videos: ["1.1.mp4"]
-                },
-                
-                2: {
-                    photos: ["1.2.1.jpg", "1.2.2.jpg"],
-                },
-    
-                3: {
-                    photos: ["1.3.jpg"],
-                },
-                
-                4: {
-                    photos: ["1.4.1.jpg", "1.4.2.jpg", "1.4.3.jpg"],
-                },
-                
-                5: {
-                    photos: ["1.5.jpg"],
-                },
-                
-                6: {
-                    photos: ["1.6.jpg"],
-                },
-                
-                7: {
-                    photos: ["1.7.2.jpg"],
-                    videos: ["1.7.1.mp4"],
-                },
-                
-                8: {
-                    photos: ["1.8.1.jpg", "1.8.2.jpg", "1.8.3.jpg"],
-                },
-                
-                9: {
-                    videos: ["1.9.mp4"],
-                },
-                
-                10: {
-                    photos: ["1.10.1.jpg", "1.10.2.jpg"],
-                },
-                
-                11: {
-                    photos: ["1.11.1.jpg", "1.11.2.jpg", "1.11.3.jpg"],
-                },
-                
-                12: {
-                    videos: ["1.12.mp4"],
-                },
-                
-                13: {
-                    photos: ["1.13.2.jpg"],
-                    videos: ["1.13.1.mp4"],
-                },
-                
-                14: {
-                    videos: ["1.14.1.mp4", "1.14.2.mp4"],
-                    photos: ["1.14.3.jpg"],
-                },
-                
-                15: {
-                },
-                
-                16: {
-                    photos: ["1.16.1.jpg", "1.16.2.jpg"],
-                },
-                
-                17: {
-                    photos: ["1.17.1.jpg", "1.17.2.jpg", "1.17.3.jpg", "1.17.4.jpg"],
-                },
-                
-                18: {
-                    photos: ["1.18.1.jpg", "1.18.2.jpg", "1.18.3.jpg", "1.18.4.jpg", "1.18.5.jpg", "1.18.6.jpg", "1.18.7.jpg"],
-                },
-                
-                19: {
-                },
-                
-                20: {
-                    photos: ["1.20.jpg"],
-                },
-                
-                21: {
-                    photos: ["1.21.1.jpg", "1.21.2.jpg"],
-                },
-                
-                22: {
-                },
-                
-                23: {
-                    photos: ["1.23.1.jpg", "1.23.2.jpg"],
-                },
-                
-                24: {
-                },
-                
-                25: {
-                },
+                1: { videos: ["c1_media/1.1.mp4"] },
+                2: { photos: ["c1_media/1.2.1.jpg", "c1_media/1.2.2.jpg"] },
+                3: { photos: ["c1_media/1.3.jpg"] },
+                4: { photos: ["c1_media/1.4.1.jpg", "c1_media/1.4.2.jpg", "c1_media/1.4.3.jpg"] },
+                5: { photos: ["c1_media/1.5.jpg"] },
+                6: { photos: ["c1_media/1.6.jpg"] },
+                7: { photos: ["c1_media/1.7.2.jpg"], videos: ["c1_media/1.7.1.mp4"] },
+                8: { photos: ["c1_media/1.8.1.jpg", "c1_media/1.8.2.jpg", "c1_media/1.8.3.jpg"] },
+                9: { videos: ["c1_media/1.9.mp4"] },
+                10: { photos: ["c1_media/1.10.1.jpg", "c1_media/1.10.2.jpg"] },
+                11: { photos: ["c1_media/1.11.1.jpg", "c1_media/1.11.2.jpg", "c1_media/1.11.3.jpg"] },
+                12: { videos: ["c1_media/1.12.mp4"] },
+                13: { photos: ["c1_media/1.13.2.jpg"], videos: ["c1_media/1.13.1.mp4"] },
+                14: { videos: ["c1_media/1.14.1.mp4", "c1_media/1.14.2.mp4"], photos: ["c1_media/1.14.3.jpg"] },
+                16: { photos: ["c1_media/1.16.1.jpg", "c1_media/1.16.2.jpg"] },
+                17: { photos: ["c1_media/1.17.1.jpg", "c1_media/1.17.2.jpg", "c1_media/1.17.3.jpg", "c1_media/1.17.4.jpg"] },
+                18: { photos: ["c1_media/1.18.1.jpg", "c1_media/1.18.2.jpg", "c1_media/1.18.3.jpg", "c1_media/1.18.4.jpg", "c1_media/1.18.5.jpg", "c1_media/1.18.6.jpg", "c1_media/1.18.7.jpg"] },
+                20: { photos: ["c1_media/1.20.jpg"] },
+                21: { photos: ["c1_media/1.21.1.jpg", "c1_media/1.21.2.jpg"] },
+                23: { photos: ["c1_media/1.23.1.jpg", "c1_media/1.23.2.jpg"] }
             };
 
-            let showingPhotos = false; // Fotoğrafların gösterilip gösterilmediğini takip edelim
+            let showingMedia = false; // Medyanın gösterilip gösterilmediğini takip edelim
 
             showPhotosBtn.addEventListener("click", function(event) {
                 event.preventDefault(); // Sayfa yenilenmesini engelle
 
-                if (!showingPhotos) {
-                    // **Hikayeye ait fotoğrafları göster**
+                if (!showingMedia) {
+                    // Hikayeye ait fotoğraf ve videoları göster
                     contentBox.innerHTML = ""; // Mevcut hikaye içeriğini temizle
 
-                    const photosContainer = document.createElement("div");
-                    photosContainer.classList.add("photos-container");
+                    const mediaContainer = document.createElement("div");
+                    mediaContainer.classList.add("media-container");
 
-                    if (storyPhotos[storyNumber]) {
-                        storyPhotos[storyNumber].forEach(photo => {
+                    // Fotoğrafları ekleyelim
+                    if (storyMedia[storyNumber]?.photos) {
+                        storyMedia[storyNumber].photos.forEach(photo => {
                             const img = document.createElement("img");
                             img.src = photo;
                             img.alt = "Anı Fotoğrafı";
-                            img.classList.add("story-photo");
-                            photosContainer.appendChild(img);
+                            img.classList.add("story-media", "story-photo");
+                            mediaContainer.appendChild(img);
                         });
-                    } else {
-                        photosContainer.innerHTML = "<p>Bu hikayeye ait fotoğraf bulunamadı.</p>";
                     }
 
-                contentBox.appendChild(photosContainer);
-                showPhotosBtn.textContent = "Hikayeye Dön"; // Butonun yazısını değiştir
+                    // Videoları ekleyelim
+                    if (storyMedia[storyNumber]?.videos) {
+                        storyMedia[storyNumber].videos.forEach(video => {
+                            const videoElement = document.createElement("video");
+                            videoElement.src = video;
+                            videoElement.controls = true;
+                            videoElement.classList.add("story-media", "story-video");
+                            mediaContainer.appendChild(videoElement);
+                        });
+                    }
+
+                    if (!storyMedia[storyNumber]?.photos && !storyMedia[storyNumber]?.videos) {
+                        mediaContainer.innerHTML = "<p>Bu hikayeye ait medya bulunamadı.</p>";
+                    }
+
+                    contentBox.appendChild(mediaContainer);
+                    showPhotosBtn.textContent = "Hikayeye Dön"; // Butonun yazısını değiştir
                 } else {
-                    // **Hikayeye Geri Dön**
+                    // Hikayeye geri dön
                     contentBox.innerHTML = `<h1 id="storyTitle">${storyTitle}</h1><p id="storyContent">${storyContent}</p>`;
                     showPhotosBtn.textContent = "Anıları Gör"; // Butonun yazısını eski haline getir
                 }
 
-                showingPhotos = !showingPhotos; // Durumu tersine çevir
+                showingMedia = !showingMedia; // Durumu tersine çevir
             });
         });
-        
+
     </script>
 </body>
 </html>

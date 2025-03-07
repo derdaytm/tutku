@@ -134,6 +134,33 @@ footer {
     font-size: 1.1em;
 }
 
+/* Fotoğraflar için sabit boyut */
+.story-photo {
+    width: 100%;
+    max-width: 200px; /* Maksimum genişlik 400px */
+    height: 100%;
+    max-height: 200px;/* Yükseklik otomatik */
+    margin: 10px 0;
+    cursor: pointer; /* Tıklanabilir yap */
+    transition: transform 0.3s ease; /* Yavaşça büyütme efekti */
+}
+
+/* Videolar için sabit boyut */
+.story-video {
+    width: 100%;
+    max-width: 200px; /* Maksimum genişlik 600px */
+    height: 100%;
+    max-height: 200px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Yavaşça büyütme efekti */
+}
+
+/* Medya üzerine tıklanıldığında büyümesini sağlayacak */
+.story-media:active {
+    transform: scale(2); /* Yüzde 20 oranında büyüme */
+}
+
 /* Mobil uyumlu tasarım */
 @media (max-width: 768px) {
     .content-box h1 {
