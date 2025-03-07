@@ -137,9 +137,9 @@ footer {
 /* Fotoğraflar için sabit boyut */
 .story-media {
     width: 100%;
-    max-width: 200px; /* Maksimum genişlik 400px */
+    max-width: 400px; /* Maksimum genişlik 400px */
     height: 100%;
-    max-height: 200px;/* Yükseklik otomatik */
+    max-height: 400px;/* Yükseklik otomatik */
     margin: 10px 0;
     cursor: pointer; /* Tıklanabilir yap */
     transition: transform 0.3s ease; /* Yavaşça büyütme efekti */
