@@ -11,8 +11,8 @@
     <!-- İçerik Kutusu -->
     <div class="content-container">
         <div class="content-box">
-            <h1 id="storyTitle">Buluşma: 20.10.2024</h1>
-            <p id="storyContent">Bu tarihte ebru ben Muammer derda Ayşe'yi almaya Bursa'ya gittik...</p>
+            <h1 id="storyTitle">Default</h1>
+            <p id="storyContent">Default - Default - Default</p>
         </div>
     </div>
     
@@ -26,6 +26,17 @@
         <a href="#" id="previousStoryBtn" class="back-btn">Önceki Hikaye</a>
         <a href="chapter1.html" class="prev-btn">Geri Gel</a>
         <a href="#" id="nextStoryBtn" class="next-btn">Sonraki Hikaye</a>
+    </div>
+    
+    <!-- Modal için gerekli yapı -->
+    <div id="mediaModal" class="media-modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" class="modal-image" src="" alt="Büyütülmüş Fotoğraf" />
+            <video id="modalVideo" class="modal-video" controls>
+                <source id="videoSource" src="" type="video/mp4" />
+            </video>
+        </div>
     </div>
     
     <!-- Footer -->
@@ -99,16 +110,31 @@
         document.addEventListener("DOMContentLoaded", function() {
             const showPhotosBtn = document.getElementById("showPhotosBtn");
             const contentBox = document.querySelector(".content-box");
+            const mediaModal = document.getElementById("mediaModal");
+            const modalImage = document.getElementById("modalImage");
+            const modalVideo = document.getElementById("modalVideo");
+            const videoSource = document.getElementById("videoSource");
+            const closeBtn = document.querySelector(".close");
 
             // URL'den hikaye numarasını al
             const urlParams = new URLSearchParams(window.location.search);
             const storyNumber = urlParams.get("story") || 1; // Varsayılan olarak 1. hikaye
 
-            // Hikaye başlığı ve içeriğini saklayalım
-            const storyTitle = document.getElementById("storyTitle").textContent;
-            const storyContent = document.getElementById("storyContent").textContent;
+            // Hikaye başlığı ve içeriğini DOM'dan alalım
+            const storyTitleElement = document.getElementById("storyTitle");
+            const storyContentElement = document.getElementById("storyContent");
 
-            // Her hikayeye özel fotoğraf ve video listesi
+            // Eğer öğeler bulunamazsa hata mesajı verebiliriz
+            if (!storyTitleElement || !storyContentElement) {
+                console.error("storyTitle veya storyContent öğesi bulunamadı.");
+                return;
+            }
+
+            // Hikaye başlığı ve içeriğini saklayalım
+            let storyTitle = storyTitleElement.textContent;
+            let storyContent = storyContentElement.textContent;
+
+            // Her hikayeye ait fotoğraf ve video listesi
             const storyMedia = {
                 1: { videos: ["c1_media/1.1.mp4"] },
                 2: { photos: ["c1_media/1.2.1.jpg", "c1_media/1.2.2.jpg"] },
@@ -150,7 +176,13 @@
                             const img = document.createElement("img");
                             img.src = photo;
                             img.alt = "Anı Fotoğrafı";
-                            img.classList.add("story-media", "story-photo");
+                            img.classList.add("story-media");
+                            img.addEventListener("click", function() {
+                                modalImage.src = photo;
+                                modalVideo.style.display = "none"; // Videoyu gizle
+                                modalImage.style.display = "block"; // Fotoğrafı göster
+                                mediaModal.style.display = "block"; // Modal'ı göster
+                            });
                             mediaContainer.appendChild(img);
                         });
                     }
@@ -161,7 +193,14 @@
                             const videoElement = document.createElement("video");
                             videoElement.src = video;
                             videoElement.controls = true;
-                            videoElement.classList.add("story-media", "story-video");
+                            videoElement.classList.add("story-media");
+                            videoElement.addEventListener("click", function() {
+                                videoSource.src = video;
+                                modalImage.style.display = "none"; // Fotoğrafı gizle
+                                modalVideo.style.display = "block"; // Videoyu göster
+                                mediaModal.style.display = "block"; // Modal'ı göster
+                                modalVideo.load(); // Videoyu yeniden başlat
+                            });
                             mediaContainer.appendChild(videoElement);
                         });
                     }
@@ -177,10 +216,22 @@
                     contentBox.innerHTML = `<h1 id="storyTitle">${storyTitle}</h1><p id="storyContent">${storyContent}</p>`;
                     showPhotosBtn.textContent = "Anıları Gör"; // Butonun yazısını eski haline getir
                 }
-
                 showingMedia = !showingMedia; // Durumu tersine çevir
             });
+
+            // Modal'ı kapama işlemi
+            closeBtn.addEventListener("click", function() {
+                mediaModal.style.display = "none";
+            });
+
+            // Modal dışına tıklanırsa kapatma işlemi
+            window.addEventListener("click", function(event) {
+                if (event.target === mediaModal) {
+                    mediaModal.style.display = "none";
+                }
+            });
         });
+
 
     </script>
 </body>
