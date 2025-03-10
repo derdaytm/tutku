@@ -37,7 +37,7 @@ body {
 
 header {
     text-align: center;
-    padding: 20px;
+    /* padding: 0vh; */
     margin-top: 22vh; /* Ekran boyutuna göre yukarıdan boşluk bırak */
 }
 
@@ -53,7 +53,7 @@ header {
 h1 {
     font-family: 'Great Vibes', cursive;
     font-size: 3em;
-    margin-bottom: 10px;
+    margin-bottom: -1vh;
     color: #6a4c9c; /* Mor renk */
     text-shadow: 2px 2px 10px rgba(146, 34, 154, 0.8);
     background: linear-gradient(45deg, #ff6ec4, #7873f5);
@@ -68,7 +68,7 @@ h1 {
 .h1_similar {
     font-family: 'Great Vibes', cursive;
     font-size: 3em;
-    margin-bottom: 10px;
+    margin-bottom: 1vh;
     color: #ffffff; /* Beyaz metin rengi */
     text-shadow: 2px 2px 10px rgba(146, 34, 154, 0.8); /* Beyaz metin için gölge efekti */
     background: none; /* Arka planı kaldırıyoruz */
@@ -93,13 +93,13 @@ h1 {
 }
 
 .date-list {
-    margin-top: -50px;
+    margin-top: -5vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    padding: 20px;  /* İç boşluk */
-    max-height: calc(3*100px); /* Yüksekliği sayfa boyutuna göre sınırlayın */
+    gap: 2vh;
+    padding: 1vh;  /* İç boşluk */
+    max-height: calc(3*11vh); /* Yüksekliği sayfa boyutuna göre sınırlayın */
     overflow-y: auto; /* Yalnızca dikey kaydırma */
     overflow-x: hidden; /* Yatay kaydırma engellensin */
     scrollbar-width: thin; /* Kaydırma çubuğunun inceltilmesi (Firefox) */
@@ -109,9 +109,9 @@ h1 {
 /* Tarih kutuları */
 .date {
     background-color: rgba(255, 255, 255, 0.8); /* Şeffaf beyaz arka plan */
-    padding: 20px;
-    border-radius: 10px;
-    width: 220px;
+    padding: 3vh;
+    border-radius: 4vh;
+    width: 20vh;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -132,12 +132,12 @@ h1 {
     font-family: 'Arial', sans-serif;
     color: #333; /* Yazı rengi */
     text-align: center;
-    margin-bottom: 10px;
+    /* margin-bottom: 0vh; */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Gölgeleme efekti */
 }
 
 .nav-buttons {
-    margin-top: 30px;
+    margin-top: 6vh;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -146,11 +146,11 @@ h1 {
 .nav-buttons a {
     display: inline-block;
     text-decoration: none;
-    padding: 15px 25px;
+    padding: 1vh 2vh;
     font-size: 1.1em;
     color: #fff;
     background-color: #6A4C9C;
-    border-radius: 5px;
+    border-radius: 5vh;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -201,11 +201,11 @@ h1 {
 
 footer {
     position: absolute;
-    bottom: 10px;
+    bottom: 1vh;
     width: 100%;
     background: rgba(0, 0, 0, 0.7);
     text-align: center;
-    padding: 10px;
+    padding: 1vh;
     color: white;
     font-size: 1.1em;
 }
